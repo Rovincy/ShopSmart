@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Shop Smart" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+  <title>Shop Smart</title>
+  <link rel="shortcut icon" href="media/logos/favicon.ico" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;700&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: '"Times New Roman", Georgia, serif';
+      background: #000;
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    /* Disable scroll ONLY during splash */
+    body.splash-active {
+      overflow: hidden;
+    }
+
+    /* Splash Screen */
+    #splash-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, #1a001a 0%, #000000 70%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+    }
+
+    #splash-screen.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    #splash-screen::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #ff0066, #cc00ff, #00ffff, #ff6600);
+      background-size: 400% 400%;
+      opacity: 0.15;
+      animation: neonShift 12s ease infinite;
+    }
+
+    @keyframes neonShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .main-logo {
+      width: 190px;
+      height: 190px;
+      background-image: url('/media/logos/logoRel.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 50%;
+      border: 8px solid #ff0066;
+      box-shadow: 
+        0 0 50px #ff0066,
+        0 0 100px #00ffff,
+        0 0 150px #cc00ff;
+      animation: logoPulse 2.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes logoPulse {
+      from { transform: scale(0.95) rotate(-10deg); }
+      to   { transform: scale(1.08) rotate(10deg); }
+    }
+
+    .brand-name {
+      font-size: 5.2rem;
+      font-weight: 700;
+      letter-spacing: -3px;
+      text-shadow: 0 0 30px #ff0066, 0 0 60px #00ffff;
+      margin-top: 20px;
+      text-transform: uppercase;
+    }
+
+    .tagline {
+      font-size: 1.45rem;
+      color: #ff3366;
+      margin-top: 12px;
+      letter-spacing: 4px;
+      font-weight: 600;
+      text-shadow: 0 0 15px #ff0066;
+    }
+
+    .loading-bar {
+      margin-top: 70px;
+      width: 320px;
+      height: 6px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .loading-progress {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #ff0066, #00ffff, #cc00ff);
+      animation: loadingBar 1.7s linear infinite;
+    }
+
+    @keyframes loadingBar {
+      to { width: 100%; }
+    }
+
+    .loading-text {
+      margin-top: 20px;
+      font-size: 1.1rem;
+      color: #ff99cc;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+    }
+
+    .float-icon {
+      position: absolute;
+      font-size: 3.5rem;
+      opacity: 0.25;
+      animation: floatAggressive 8s ease-in-out infinite;
+    }
+
+    @keyframes floatAggressive {
+      0%   { transform: translateY(0px); }
+      50%  { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .float1 { top: 15%; left: 10%; color: #ff0066; }
+    .float2 { top: 30%; right: 12%; color: #00ffff; animation-delay: 2s; }
+    .float3 { bottom: 25%; left: 15%; color: #cc00ff; animation-delay: 4s; }
+  </style>
+</head>
+
+<body id="kt_body" class="page-loading splash-active">
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+
+  <!-- Theme setup -->
+  <script>
+    let themeMode = 'system';
+    if (localStorage.getItem('kt_theme_mode_value')) {
+      themeMode = localStorage.getItem('kt_theme_mode_value');
+    }
+    if (themeMode === 'system') {
+      themeMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-bs-theme', themeMode);
+  </script>
+
+  <div id="root"></div>
+  <div id="root-modals"></div>
+
+  <!-- Splash Screen -->
+  <div id="splash-screen">
+    <div class="float-icon float1">🛒</div>
+    <div class="float-icon float2">🔥</div>
+    <div class="float-icon float3">💥</div>
+
+    <div class="main-logo"></div>
+    <div class="brand-name">Shop Smart</div>
+    <div class="tagline">DEALS THAT HIT HARD</div>
+
+    <div class="loading-bar">
+      <div class="loading-progress"></div>
+    </div>
+    <div class="loading-text">Igniting the best deals...</div>
+  </div>
+
+  <!-- Splash logic -->
+  <script>
+    window.addEventListener('load', () => {
+      const splash = document.getElementById('splash-screen');
+
+      if (splash) {
+        splash.classList.add('fade-out');
+
+        setTimeout(() => {
+          splash.remove();
+          document.body.classList.remove('splash-active'); // ✅ restore scrolling
+        }, 600);
+      }
+    });
+  </script>
+
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+</html>
