@@ -19,9 +19,8 @@
     "@shadcn/ui": "^0.0.4",
     "animate.css": "4.1.1",
     "antd": "^5.29.3",
-    // "apexcharts": "^3.35.0",
     "react-apexcharts": "^2.1.0",
-    "apexcharts": "^5.10.6"   // or just "^5.0.0" – let it resolve latest
+    "apexcharts": "^5.10.6"
     "axios": "1.4.0",
     "bootstrap": "5.3.0",
     "bootstrap-icons": "^1.5.0",
@@ -41,7 +40,6 @@
     "prismjs": "1.28.0",
     "qs": "6.10.3",
     "react": "^18.2.0",
-    // "react-apexcharts": "^1.4.0",
     "react-bootstrap": "2.5.0-beta.1",
     "react-calendar": "^5.1.0",
     "react-chartjs-2": "^5.3.0",
