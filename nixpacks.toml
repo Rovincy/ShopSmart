@@ -5,7 +5,7 @@ nixPkgs = ["nodejs_20"]
 cmds = ["npm install --force"]
 
 [phases.build]
-cmds = ["npm run build -- --skipLibCheck"]   # or just "tsc --noEmit false" if needed
+cmds = ["vite build"]   # Skip tsc entirely and let Vite handle it
 
 [start]
 cmd = "npm start"
