@@ -41,7 +41,7 @@ const { Title, Text } = Typography;
 const { Option } = Select;
 const { TextArea } = Input;
 
-const API_BASE = 'https://localhost:7294/api';
+const API_BASE = 'https://api.rovincy.com/api';
 
 const HomePage: React.FC = () => {
   const [form] = Form.useForm();

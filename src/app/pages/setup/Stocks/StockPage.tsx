@@ -24,7 +24,7 @@ const { Title } = Typography;
 const { Option } = Select;
 const { Search } = AntInput;
 
-const API_BASE = 'https://localhost:7294/api/Stock';
+const API_BASE = 'https://api.rovincy.com/api/Stock';
 
 interface Product {
   id: string;

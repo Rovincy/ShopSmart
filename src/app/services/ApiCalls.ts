@@ -6,7 +6,7 @@ import axios from 'axios'
 // export const Report_URL = "https://15.236.239.129/2i-reports/"
 export const Report_URL = "https://2i-institut.com/2i-reports/"
 export const Api_Endpoint = 'https://api.rovincy.com/api'
-// export const Api_Endpoint = 'https://localhost:7294/api'
+// export const Api_Endpoint = 'https://api.rovincy.com/api'
 // export  const Api_Endpoint ="https://15.236.239.129/2i-api/api";
 // export  const Api_Endpoint ="https://2i-institut.com/2i-api/api";
 // 

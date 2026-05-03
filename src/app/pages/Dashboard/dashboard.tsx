@@ -49,7 +49,7 @@ const DashboardPage: React.FC = () => {
 
   const fetchDashboardData = async () => {
     try {
-      const res = await fetch('https://localhost:7294/api/dashboard/stats');
+      const res = await fetch('https://api.rovincy.com/api/dashboard/stats');
       if (!res.ok) throw new Error('Failed to fetch dashboard data');
       
       const data: DashboardStats = await res.json();
