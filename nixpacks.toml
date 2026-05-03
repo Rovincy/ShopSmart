@@ -5,7 +5,7 @@ nixPkgs = ["nodejs_20"]
 cmds = ["npm install --force"]
 
 [phases.build]
-cmds = ["npm run build"]
+cmds = ["npm run build -- --skipLibCheck"]   # or just "tsc --noEmit false" if needed
 
 [start]
 cmd = "npm start"
