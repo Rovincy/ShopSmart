@@ -43,7 +43,7 @@ const { TextArea } = Input;
 
 const API_BASE = 'https://api.rovincy.com/api';
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
   const [form] = Form.useForm();
   const [editForm] = Form.useForm();
 
@@ -86,7 +86,7 @@ const Home: React.FC = () => {
   const fetchProducts = async () => {
     try {
       setLoadingProducts(true);
-      const res = await axios.get(`${API_BASE}/products/with-stock`);
+      const res = await axios.get(`${API_BASE}/Catalog/products/with-stock`);
 
       const mapped = res.data.map((p: any) => ({
         retailerId: p.retailer_id,
@@ -727,4 +727,4 @@ const Home: React.FC = () => {
   );
 };
 
-export { Home };
+export { HomePage };

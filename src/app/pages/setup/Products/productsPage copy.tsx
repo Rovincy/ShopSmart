@@ -28,7 +28,7 @@ const { Option } = Select;
 const { Panel } = Collapse;
 const { TextArea } = Input;
 
-const API_BASE = 'https://api.rovincy.com/api';
+const API_BASE = 'https://api.rovincy.com/api/Catalog';
 
 interface Product {
   id: string;           // Meta ID (string)
