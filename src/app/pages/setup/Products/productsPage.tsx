@@ -18,7 +18,7 @@ import {
   Image,
   Upload,
 } from 'antd';
-// tester
+
 import { PlusOutlined, EditOutlined, DeleteOutlined, UploadOutlined } from '@ant-design/icons';
 import type { UploadFile, UploadProps } from 'antd';
 import Search from 'antd/es/input/Search';
