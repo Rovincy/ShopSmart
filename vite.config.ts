@@ -8,6 +8,6 @@ export default defineConfig({
   preview: {
     host: true,
     port: 4173,
-    allowedHosts: ['smartshop.rovincy.com', '.rovincy.com']
+    allowedHosts: ['shopsmart.rovincy.com', '.rovincy.com']
   }
 })
